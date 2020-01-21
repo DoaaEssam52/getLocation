@@ -3,9 +3,9 @@ var txt1;
 var txt2;
 var txt3;
 var txt4;
-/**/
+
 /*get latitude,longitude,url of google maps including this latitude and longitude and timezone*/
-function getLocation()
+function getLocationData()
 {
         navigator.geolocation.getCurrentPosition(position=>
         {
