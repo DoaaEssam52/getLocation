@@ -3,12 +3,31 @@
 </head>
 <body>
 <div>
-    <input type="text" id="txt1">
-    <input type="text" id="txt2">
-    <input type="url" id="txt3">
-    <input type="text" id="txt4">
+   <label>Latitude:</label>
+    <input id="txt1" type="text">
+    <br>
+    <br>
+
+    <label>Longitude:</label>
+    <input id="txt2" type="text">
+    <br>
+    <br>
+
+    <label>Google Maps Link:</label>
+    <input id="txt3" type="text">
+    <br>
+    <br>
+
+    <label>Time Zone:</label>
+    <input id="txt4" type="text">
+    <br>
+    <br>
+
+    <!-- زر ارجاع البياتات و تعبئة الحقول -->
+    <button onclick="getLocationData()">Get my location data</button>
 </div>
-<button onclick="getLocation()">getData</button> 
+    
+<p> NOTE: You have to enable "Location Access" on your device first.</p>
 <script src="app.js"></script>
 </body>
 </html>
