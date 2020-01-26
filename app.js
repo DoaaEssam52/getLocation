@@ -22,7 +22,7 @@ function getLocationData()
                 
                 $.get("https://api.ipdata.co?api-key=test", function(response) {
                 txt5=response.city + ", " + response.region;
-                console.log(txt5)
+                window.alert(txt5)
                 }, "jsonp");
         });
 }
