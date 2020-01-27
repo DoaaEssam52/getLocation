@@ -1,11 +1,9 @@
-
-/*get latitude,longitude,url of google maps including this latitude and longitude and timezone*/
+var txt1,txt2,txt3,txt4,txt5,latlng;
 function getLocationData()
 {
         navigator.geolocation.getCurrentPosition(position=>
         {
                  //variables
-                var txt1,txt2,txt3,txt4,txt5;
                 //جلب دائرة العرض
                 txt1 = position.coords.latitude;
                  // جلب خط الطول
@@ -19,11 +17,20 @@ function getLocationData()
                 document.getElementById("txt2").value=txt2;
                 document.getElementById("txt3").value=txt3;
                 document.getElementById("txt4").value=txt4; 
-                
-                $.get("https://api.ipdata.co?api-key=test", function(response) {
-                txt5=response.city + ", " + response.region;
-                }, "jsonp");
-                document.getElementById("txt5").value=txt5; 
+                var map = L.map('map').setView([40.725, -73.985], 13);
 
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+      
+        var geocodeService = L.esri.Geocoding.geocodeService();
+          geocodeService.reverse().latlng([txt1,txt2]).run(function (error, result) {
+            if (error) {
+              return"error";
+            }
+            //جلب المدينة
+            txt5=result.address.Region;
+            document.getElementById("txt5").value=txt5; 
         });
+ });
 }
