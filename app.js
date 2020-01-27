@@ -22,7 +22,8 @@ function getLocationData()
                 
                 $.get("https://api.ipdata.co?api-key=test", function(response) {
                 txt5=response.city + ", " + response.region;
-                window.alert(txt5)
                 }, "jsonp");
+                document.getElementById("txt5").value=txt5; 
+
         });
 }
